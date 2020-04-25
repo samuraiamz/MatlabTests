@@ -1,0 +1,2 @@
+% written in the command window
+results = runtests('motorA1Test')
