@@ -1,5 +1,0 @@
-% implicit tests suite
-result = runtests('motorA1Test.m');
-% explicit test suite
-suite = matlab.unittest.TestSuite.fromFile('motorA1Test.m');
-result = run(suite);

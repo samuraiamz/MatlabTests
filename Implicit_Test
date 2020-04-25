@@ -1,0 +1,2 @@
+% implicit tests all the tests 
+result = runtests('motorA1Test.m');
