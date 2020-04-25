@@ -1,0 +1,3 @@
+suite = testsuite
+{suite.Name}'
+suite1 = testsuite('motorA1Test')
