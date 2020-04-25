@@ -1,0 +1,9 @@
+import matlab.unittest.TestSuite
+import matlab.unittest.selectors.HasName
+import matlab.unittest.constraints.EndsWithSubstring
+f = 'motorA1Test.m';
+suite = TestSuite.fromFile('motorA1Test.m');
+{suite.Name}
+s1= suite.selectIf(HasName('motorA1Test/motorA'));
+{s1.Name}
+result = run(s1)
