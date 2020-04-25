@@ -1,4 +1,5 @@
 % Matlab script based function
+% Time constant varied by motors A,B and C. motor.gain constant.
 %% set up our motor with initial conditions and properties
 % properties
 motor.gain = 0.1;          % [rpm/V]
