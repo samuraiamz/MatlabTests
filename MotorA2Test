@@ -1,0 +1,19 @@
+% test set up our motors with initial conditions and properties
+% test motor properties 
+motorA.timeConstant = 2/60 ; % [min]
+motorB.timeConstant = 2/50 ; % [min]
+motorC.timeConstant = 2/40; % [min]
+
+ 
+%% motorA 
+% Test 1 tests if the time.constant and gain of motorA are of appropiate
+% value. If it isn't, assert throws an error.
+assert(motorA.timeConstant == 2/60) ; % [min]
+%% motorB
+% Test 2 tests if the time.constant is appropiate
+% value. If it isn't, assert throws an error.
+assert(motorB.timeConstant == 3/50); % [min]
+%% motorC
+% Test 3 tests if the time.constant is appropiate
+% value. If it isn't, assert throws an error.
+assert(motorC.timeConstant == 2/40); % [min]
