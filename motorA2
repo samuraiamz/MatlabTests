@@ -1,0 +1,23 @@
+%% set up our motor with initial conditions and properties
+% properties
+
+motor.gain = 0.1;          % [rpm/V]
+
+% transfer function for the motor
+s=tf('s');
+TFmotor_OL = motor.gain / (motorA.timeConstant*s +1);
+
+% plot open-loop response
+step(TFmotor_OL, 1)
+hold on
+
+%% set up our PID
+% tune a PID
+controller = pidtune(TFmotor_OL, 'pid');
+
+% connect the controller and motor
+TFmotor_CL = feedback(controller*TFmotor_OL, 1);
+
+% plot closed-loop response
+step(TFmotor_CL, 1) % plot closed-loop
+legend('show') % show legend
