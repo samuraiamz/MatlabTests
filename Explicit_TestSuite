@@ -1,0 +1,2 @@
+suite = matlab.unittest.TestSuite.fromFile('motorA1Test.m');
+result = run(suite);
