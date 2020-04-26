@@ -1,0 +1,25 @@
+%% set up our motor with initial conditions and properties
+% properties
+motor.timeConstant = 2/60; % [min]
+motor.gain = 0.1;          % [rpm/V]
+
+% transfer function for the motor
+s=tf('s');
+TFmotor_OL = motor.gain / (motor.timeConstant*s +1);
+
+
+%% set up our PID
+% tune a PID
+PIDoptions = pidtuneOptions('DesignFocus','reference-tracking');
+controller = pidtune(TFmotor_OL, 'pid', PIDoptions);
+% connect the controller and motor
+TFmotor_CL = feedback(controller*TFmotor_OL, 1);
+
+% plot closed-loop response
+legend('show') % show legend
+period = 15;
+duration = 80;
+timestep = 0.05;
+[u,t] = gensig('square', period, duration, timestep);
+noise = u + 0.04*randn(size(u));
+lsim(TFmotor_CL, noise, t) % simulate time response
