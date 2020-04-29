@@ -1,0 +1,21 @@
+%% set up our motor with initial conditions and properties
+% properties
+function tests = MotorA3newTest
+tests = functiontests(localfunctions);
+end
+function testFunctionOne(testCase)
+motor.timeConstant = 2/60 ; % [min]
+motor.gain = 0.1;          % [rpm/V]
+s=tf('s');
+TFmotor_OL = motor.gain / (motor.timeConstant*s +1);
+% set up our PID
+PIDOpt1 = pidtuneOptions('DesignFocus','reference-tracking');
+PIDOpt1 = pidtuneOptions('DesignFocus','reference-tracking');
+controller = pidtune(TFmotor_OL, 'pid', PIDOpt1);
+TFmotor_CL = feedback(controller*TFmotor_OL, 1);
+verifyEqual(testCase,PIDOpt1,PIDOpt1)
+end
+function setup(~)
+end
+function teardown(~)
+end
