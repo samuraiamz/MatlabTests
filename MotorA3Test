@@ -9,11 +9,11 @@ motor.gain = 0.1;          % [rpm/V]
 s=tf('s');
 TFmotor_OL = motor.gain / (motor.timeConstant*s +1);
 % set up our PID
-PIDOpt1 = pidtuneOptions('DesignFocus','reference-tracking');
-PIDOpt1 = pidtuneOptions('DesignFocus','reference-tracking');
-controller = pidtune(TFmotor_OL, 'pid', PIDOpt1);
+PIDOpt = pidtuneOptions('DesignFocus','reference-tracking');
+verifyPIDOpt = pidtuneOptions('DesignFocus','reference-tracking');
+controller = pidtune(TFmotor_OL, 'pid', PIDOpt);
 TFmotor_CL = feedback(controller*TFmotor_OL, 1);
-verifyEqual(testCase,PIDOpt1,PIDOpt1)
+verifyEqual(testCase,PIDOpt,verifyPIDOpt)
 end
 function setup(~)
 end
