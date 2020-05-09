@@ -5,7 +5,7 @@ motor.gain = 0.1;          % [rpm/V]
 
 % transfer function for the motor
 s=tf('s');
-TFmotor_OL = motor.gain / (motorA.timeConstant*s +1);
+TFmotor_OL = motor.gain / (motor.timeConstant*s +1);
 
 % plot open-loop response
 step(TFmotor_OL, 1)
