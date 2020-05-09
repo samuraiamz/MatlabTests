@@ -1,22 +1,8 @@
 %% Test 1: DC brush motorA 
-% Test 1 tests if the time.constant x is between the specified minimum and maximum 
-% value. If it isn't, assert throws an error and fails the test.
+% Tests if the time.constant is between the specified minimum and maximum 
+% values. If it isn't, assert throws an error and fails the test.
 
-MinMotorA.timeConstant = 1/60; % [min]
-MaxMotorA.timeConstant = 6/60; % [min]
-motorA.timeConstant = 2/60;
-assert((MinMotorA.timeConstant < motorA.timeConstant) && (motorA.timeConstant < MaxMotorA.timeConstant))
-%% Test 2: DC brush motorB
-% Test 2 tests if the time.constant x is between the specified minimum and maximum 
-% value. If it isn't, assert throws an error and fails the test.
-MinMotorB.timeConstant = 7/60; % [min]
-MaxMotorB.timeConstant = 13/60; % [min]
-motorB.timeConstant = 10/60;
-assert((MinMotorB.timeConstant < motorB.timeConstant) && (motorB.timeConstant < MaxMotorB.timeConstant))
-%% Test 3: DC brush motorC
-% Test 3 tests if the time.constant x is between the specified minimum and maximum 
-% value. If it isn't, assert throws an error and fails the test.
-MinMotorC.timeConstant = 14/60; % [min]
-MaxMotorC.timeConstant = 19/60; % [min]
-motorC.timeConstant = 10/60;
-assert((MinMotorC.timeConstant < motorC.timeConstant) && (motorC.timeConstant < MaxMotorC.timeConstant)) 
+MinMotor.timeConstant = 1/60; % [min]
+MaxMotor.timeConstant = 6/60; % [min]
+motor.timeConstant = 2/60;
+assert((MinMotor.timeConstant < motor.timeConstant) && (motor.timeConstant < MaxMotor.timeConstant))
