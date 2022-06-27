@@ -1,3 +1,1 @@
-# MatlabTests
-codes to test my Matlab code
-[Reflective report.docx](https://github.com/samuraiamz/MatlabTests/files/8992638/Reflective.report.docx)
+In this repository a MATLAB code that simulates a DC motor that is then simulated to observe the response of the motor with and without a PID control, and the noise input of a system (which would be the motor) will be tested.
